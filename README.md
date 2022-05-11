@@ -38,7 +38,7 @@ The calculator only accepts whole numbers as inputs and outputs whole numbers.
  | 1 2 + 3 * 4 5 + + | 18 |
  | 1 2 + 3 * 4 + 1 2 * | 2 |
  | 1 2 + 3 * 4 + | 13 |
- | 1 2 + 3 * 4 + * - + / % | 13 |
+ | 1 2 + 3 *    4 + * - + /   % | 13 |
  | 1 2 + 3 * 4 + * | 13 |
  | 1 2 + 3 * 4 + - * * 2 *  | 26 |
  | 1 2 + 3 * 4 + - * * 0 /  | 0 |
@@ -64,3 +64,7 @@ The calculator only accepts whole numbers as inputs and outputs whole numbers.
 2. Run code from command line
  
   - `python calculator.py` or `python3 calculator.py`
+
+3. Example `dc` command
+
+  - `dc -e=' 1 2 + 3 *    4 + * - + /   % p'`
