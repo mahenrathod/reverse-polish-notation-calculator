@@ -25,8 +25,7 @@ Remainder or modulo (`%`). Example: `“5 2 %” => 1`
 
 The calculator only accepts whole numbers as inputs and outputs whole numbers.
 
-# Valid Examples
-
+### Valid Examples
 
 | Input        | Output |
 |--------------|--------|
@@ -47,7 +46,8 @@ The calculator only accepts whole numbers as inputs and outputs whole numbers.
  | 2147483648 2147483648 + | 4294967296 |
  | 9223372036854775807 9223372036854775807 + | 18446744073709551614 |
 
-# Invalid Examples
+
+### Invalid Examples
 
 | Input        | Reason |
 |--------------|--------|
