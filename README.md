@@ -54,3 +54,13 @@ The calculator only accepts whole numbers as inputs and outputs whole numbers.
 | (1 2) + (3 * 4) + | Contains paranthesis |
  | 10 6 9 3 + -11 * / * 17 + 5 + | Contains negative number |
  | one two + | Contains strings |
+
+### Commands
+
+1. Run Unit Tests
+   
+  - `pytest test_calculator.py -v`  
+
+2. Run code from command line
+ 
+  - `python calculator.py` or `python3 calculator.py`

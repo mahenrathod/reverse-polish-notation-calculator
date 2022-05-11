@@ -37,7 +37,6 @@ class MyTestCase(unittest.TestCase):
 
     def test_valid_expressions(self):
         for expression in VALID_EXPRESSIONS_DICT:
-            print(f'expression: {expression}')
             expected = VALID_EXPRESSIONS_DICT.get(expression)
             actual = Calculator().calculate(expression)
             self.assertEqual(actual, expected)

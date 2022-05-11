@@ -6,21 +6,21 @@ class Calculator:
 
     def calculate(self, expression: str) -> int:
         e_arr = expression.strip().split()
-        if not self._valid_input(e_arr):
+        if not self.__valid_input(e_arr):
             raise RuntimeError("Not a valid expression")
-        return self._find_answer(e_arr)
+        return self.__find_answer(e_arr)
 
-    def _valid_input(self, e_arr: []) -> bool:
+    def __valid_input(self, e_arr: []) -> bool:
         for val in e_arr:
-            if (not self._is_whole_number(val)) and \
+            if (not self.__is_whole_number(val)) and \
                     (val not in self.operations):
                 return False
         return True
 
-    def _is_whole_number(self, val: str) -> bool:
+    def __is_whole_number(self, val: str) -> bool:
         return val.isdigit() and int(val) >= 0
 
-    def _find_answer(self, e_arr: []) -> bool:
+    def __find_answer(self, e_arr: []) -> bool:
         for val in e_arr:
             if val in self.operations:
                 val1 = self.stack.pop()
