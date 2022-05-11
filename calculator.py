@@ -2,7 +2,7 @@ class Calculator:
 
     def __init__(self):
         self.stack = []
-        self.operations = ['/', '*', '%', '+', '-']
+        self.valid_operations = ['/', '*', '%', '+', '-']
 
     def calculate(self, expression: str) -> int:
         e_arr = expression.strip().split()
@@ -13,7 +13,7 @@ class Calculator:
     def __valid_input(self, e_arr: []) -> bool:
         for val in e_arr:
             if (not self.__is_whole_number(val)) and \
-                    (val not in self.operations):
+                    (val not in self.valid_operations):
                 return False
         return True
 
@@ -22,7 +22,7 @@ class Calculator:
 
     def __find_answer(self, e_arr: []) -> bool:
         for val in e_arr:
-            if val in self.operations:
+            if val in self.valid_operations:
                 val1 = self.stack.pop()
                 try:
                     val2 = self.stack.pop()
