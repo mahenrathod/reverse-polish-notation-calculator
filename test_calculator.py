@@ -1,5 +1,5 @@
 import unittest
-from calculator import Calculator
+from rpn_calculator import RPNCalculator
 
 VALID_EXPRESSIONS_DICT = {
     '5 2 /': 2,
@@ -17,7 +17,7 @@ VALID_EXPRESSIONS_DICT = {
     '1 2 + 3 * 4 + - * * 0 / ': 0,
     '10 6 9 3 + 11 / 17 + 5 +': 23,
     '2147483648 2147483648 +': 4294967296,
-    '9223372036854775807 9223372036854775807 +': 18446744073709551614,
+    '9223372036854775807 9223372036854775807 +': 18446744073709551614
 }
 
 INVALID_EXPRESSIONS = [
@@ -32,18 +32,18 @@ INVALID_EXPRESSIONS = [
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.class_under_test = Calculator()
+        self.class_under_test = RPNCalculator()
 
     def test_valid_expressions(self):
         for expression in VALID_EXPRESSIONS_DICT:
             expected = VALID_EXPRESSIONS_DICT.get(expression)
-            actual = Calculator().calculate(expression)
+            actual = RPNCalculator().calculate(expression)
             self.assertEqual(actual, expected)
 
     def test_invalid_expressions(self):
         for expression in INVALID_EXPRESSIONS:
-            with self.assertRaises(RuntimeError, msg='Not a valid expression'):
-                Calculator().calculate(expression)
+            with self.assertRaises(RuntimeError, msg='Invalid expression!!'):
+                RPNCalculator().calculate(expression)
 
 if __name__ == '__main__':
     unittest.main()
