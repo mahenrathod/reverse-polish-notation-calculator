@@ -1,18 +1,19 @@
+import constants
+
 class RPNCalculator:
 
     def __init__(self):
         self.stack = []
-        self.valid_operations = ['/', '*', '%', '+', '-']
 
     def calculate(self, expression: str) -> int:
         expr_values = expression.strip().split()
         if not self.__is_valid_expression(expr_values):
-            raise RuntimeError("Invalid expression!!")
+            raise RuntimeError(f"Invalid expression: {expression}")
         return self.__find_answer(expr_values)
 
     def __is_valid_expression(self, expr_values: []) -> bool:
         for val in expr_values:
-            if not self.__is_whole_number(val) and val not in self.valid_operations:
+            if not self.__is_whole_number(val) and val not in constants.VALID_OPERATIONS:
                 return False
         return True
 
@@ -21,12 +22,11 @@ class RPNCalculator:
 
     def __find_answer(self, expr_values: []) -> bool:
         for val in expr_values:
-            if val in self.valid_operations:
+            if val in constants.VALID_OPERATIONS:
                 right_operand = self.stack.pop()
                 try:
                     left_operand = self.stack.pop()
-                    formula = f'{left_operand}{val}{right_operand}'
-                    answer = int(eval(formula))
+                    answer = int(eval(f'{left_operand}{val}{right_operand}'))
                 except IndexError:
                     answer = right_operand
                 except ZeroDivisionError:
